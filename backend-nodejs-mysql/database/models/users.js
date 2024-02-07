@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('users', {
+  const Users = sequelize.define('users', {
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
@@ -7,9 +7,16 @@ module.exports = (sequelize, DataTypes) => {
     lastname: DataTypes.STRING,
     user_type: DataTypes.ENUM(['customer', 'banker']),
     account_opened_date: DataTypes.DATEONLY,
+    current_balance: DataTypes.INTEGER
   }, {
     timestamps: true,
     paranoid: true,
     underscored: true,
   });
+
+  Users.associate = models => {
+    Users.hasMany(models.accounts, { foreignKey: 'user_id' });
+  };
+
+  return Users;
 };
