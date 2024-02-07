@@ -28,6 +28,7 @@ module.exports = {
       },
       date: {
         type: Sequelize.DATE,
+        defaultValue: new Date(),
         allowNull: false,
       },
       created_at: {
