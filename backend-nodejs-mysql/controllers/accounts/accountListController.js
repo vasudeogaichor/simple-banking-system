@@ -4,7 +4,6 @@ async function accountListController(req, res, next) {
     try {
         const result = await accountListFeature(req.query)
         res.status(200).json(result);
-        console.log('result - ', result);
     } catch (error) {
         console.error(error);
         res.status(500).json('Error fetching accounts');
