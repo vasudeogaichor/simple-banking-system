@@ -1,32 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { logoutSuccess } from '../redux/actions';
-import TransactionModal from './modals/TransactionModal';
-import { createTxn } from '../apis/accounts';
 
-const Header = () => {
+
+const Header = ({setShowTransactionModal, setTransactionType }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedInUser = useSelector(state => state.auth.user);
-  const token = useSelector(state => state.auth.token);
-  const [transactionType, setTransactionType] = useState('deposit')
-  const [showTransactionModal, setShowTransactionModal] = useState(false)
-
-  const handleTransaction = async (type, amount) => {
-    const user_id = loggedInUser.id
-
-    try {
-      const res = await createTxn(token, { type, amount, user_id });
-      return res;
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  const closeTransactionModal = () => {
-    setShowTransactionModal(false)
-  }
 
   const handleLogout = () => {
     dispatch(logoutSuccess());
@@ -86,11 +67,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <TransactionModal showModal={showTransactionModal}
-        handleTransaction={handleTransaction}
-        closeModal={closeTransactionModal}
-        type={transactionType}
-         />
     </header>
   );
 };

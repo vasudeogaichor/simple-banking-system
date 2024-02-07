@@ -4,7 +4,7 @@ import moment from 'moment';
 import { listUsers } from "../apis/users";
 import { setAllUserData } from '../redux/actions';
 
-export default function CustomerList() {
+export default function CustomerList({showTransactionModal}) {
 	const accessToken = useSelector(state => state.auth.token);
 	const dispatch = useDispatch();
 	const [allUsers, setAllUsers] = useState([]);
@@ -23,7 +23,7 @@ export default function CustomerList() {
 		if (accessToken) {
 			fetchUsers();
 		}
-	}, [accessToken, dispatch]);
+	}, [accessToken, dispatch, showTransactionModal]);
 
 	return (
 		<div className="opacity-animation" style={{marginTop: '60px'}}>
