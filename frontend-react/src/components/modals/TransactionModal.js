@@ -11,10 +11,14 @@ const TransactionModal = ({ showModal, closeModal, handleTransaction, type }) =>
     } else {
       setErrorMessage('');
       try {
-        await handleTransaction(type, parseFloat(amount));
-        closeModal();
+        const result = await handleTransaction(type, parseFloat(amount));
+        if (result?.id) {
+            closeModal();
+        } else {
+            setErrorMessage(result?.Error || 'An error occurred.');    
+        }
       } catch (error) {
-        setErrorMessage(error.response?.data?.message || 'An error occurred.');
+        setErrorMessage(error || 'An error occurred.');
       }
     }
   };

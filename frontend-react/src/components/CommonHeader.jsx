@@ -13,16 +13,15 @@ const Header = () => {
   const [transactionType, setTransactionType] = useState('deposit')
   const [showTransactionModal, setShowTransactionModal] = useState(false)
 
-  const handleTransaction = (type, amount) => {
+  const handleTransaction = async (type, amount) => {
     const user_id = loggedInUser.id
-    createTxn(token, {type, amount, user_id})
-    .then(res => {
-      console.log('res - ', res)
-    })
-    .catch(error => {
-      console.log('err - ', error)
-    })
 
+    try {
+      const res = await createTxn(token, { type, amount, user_id });
+      return res;
+    } catch (error) {
+      throw error;
+    }
   }
 
   const closeTransactionModal = () => {
@@ -40,7 +39,7 @@ const Header = () => {
   }
 
   const handleWithdrawal = () => {
-    setTransactionType('withdrwal')
+    setTransactionType('withdrawal')
     setShowTransactionModal(true)
   }
 
