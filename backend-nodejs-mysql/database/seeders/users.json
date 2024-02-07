@@ -1,0 +1,57 @@
+[
+    {
+      "username": "john_doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "firstname": "John",
+      "lastname": "Doe",
+      "user_type": "customer",
+      "account_opened_date": "2024-01-01"
+    },
+    {
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "password": "secret456",
+      "firstname": "Jane",
+      "lastname": "Smith",
+      "user_type": "banker",
+      "account_opened_date": "2024-01-02"
+    },
+    {
+      "username": "alex_wilson",
+      "email": "alex@example.com",
+      "password": "password789",
+      "firstname": "Alex",
+      "lastname": "Wilson",
+      "user_type": "customer",
+      "account_opened_date": "2024-01-03"
+    },
+    {
+      "username": "emily_jones",
+      "email": "emily@example.com",
+      "password": "secretABC",
+      "firstname": "Emily",
+      "lastname": "Jones",
+      "user_type": "customer",
+      "account_opened_date": "2024-01-04"
+    },
+    {
+      "username": "michael_smith",
+      "email": "michael@example.com",
+      "password": "passwordXYZ",
+      "firstname": "Michael",
+      "lastname": "Smith",
+      "user_type": "customer",
+      "account_opened_date": "2024-01-05"
+    },
+    {
+      "username": "susan_walker",
+      "email": "susan@example.com",
+      "password": "secret123",
+      "firstname": "Susan",
+      "lastname": "Walker",
+      "user_type": "customer",
+      "account_opened_date": "2024-01-06"
+    }
+  ]
+  
