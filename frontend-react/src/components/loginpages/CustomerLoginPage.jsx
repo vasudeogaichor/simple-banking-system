@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '../redux/actions';
-import { loginUser } from "../apis/auth";
+import { loginSuccess } from '../../redux/actions';
+import { loginUser } from "../../apis/auth";
 
 export default function CustomerLoginPage() {
   const dispatch = useDispatch(); 

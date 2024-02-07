@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './redux/store'
-import CustomerLoginPage from './components/CustomerLoginPage';
-import EmployeeLoginPage from './components/EmployeeLoginPage';
-import CustomerHomePage from './components/CustomerHomePage';
-import EmployeeHomePage from './components/EmployeeHomePage';
+import CustomerLoginPage from './components/loginpages/CustomerLoginPage';
+import EmployeeLoginPage from './components/loginpages/EmployeeLoginPage';
+import CustomerHomePage from './components/homepages/CustomerHomePage';
+import EmployeeHomePage from './components/homepages/EmployeeHomePage';
 
 function App() {
   return (
