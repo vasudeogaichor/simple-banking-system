@@ -2,12 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./database');
 const { userRouter, accountRouter, authRouter } = require('./routes');
+const { verifyToken } = require('./middleware/authMiddleware');
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/auth', authRouter)
+app.use(verifyToken)
 app.use('/users', userRouter);
 app.use('/accounts', accountRouter);
 
