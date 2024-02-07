@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require("sequelize");
-import * as dotenv from "dotenv";
+const dotenv = require("dotenv");
 
 dotenv.config();
 
