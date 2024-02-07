@@ -22,6 +22,10 @@ module.exports = {
         type: Sequelize.ENUM(['deposit', 'withdrawal']),
         allowNull: false,
       },
+      amount: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       date: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -32,7 +36,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       deleted_at: {

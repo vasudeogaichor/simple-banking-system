@@ -1,0 +1,39 @@
+[
+    {
+      "user_id": 1,
+      "type": "deposit",
+      "amount": 100,
+      "date": "2024-01-01"
+    },
+    {
+      "user_id": 2,
+      "type": "deposit",
+      "amount": 200,
+      "date": "2024-01-02"
+    },
+    {
+      "user_id": 3,
+      "type": "deposit",
+      "amount": 300,
+      "date": "2024-01-03"
+    },
+    {
+      "user_id": 4,
+      "type": "deposit",
+      "amount": 400,
+      "date": "2024-01-04"
+    },
+    {
+      "user_id": 5,
+      "type": "deposit",
+      "amount": 500,
+      "date": "2024-01-05"
+    },
+    {
+      "user_id": 6,
+      "type": "deposit",
+      "amount": 600,
+      "date": "2024-01-06"
+    }
+  ]
+  
