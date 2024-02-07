@@ -7,6 +7,7 @@ import CustomerLoginPage from './components/loginpages/CustomerLoginPage';
 import EmployeeLoginPage from './components/loginpages/EmployeeLoginPage';
 import CustomerHomePage from './components/homepages/CustomerHomePage';
 import EmployeeHomePage from './components/homepages/EmployeeHomePage';
+import TransactionList from './components/TransactionList';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/employee-login" element={<EmployeeLoginPage />} />
             <Route path="/customer-home" element={<CustomerHomePage />} />
             <Route path="/employee-home" element={<EmployeeHomePage />} />
+            <Route path="/users/:id/transactions" element={<TransactionList />} />
           </Routes>
         </Router>
       </div>
