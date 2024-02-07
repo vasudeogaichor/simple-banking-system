@@ -1,6 +1,8 @@
-
+import CommonHeader from './CommonHeader'
 export default function CustomerHomePage() {
   return (
-    <div>CustomerHomePage</div>
+    <>
+    <CommonHeader />
+    </>
   )
 }
