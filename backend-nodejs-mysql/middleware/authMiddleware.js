@@ -22,7 +22,7 @@ function verifyToken(req, res, next) {
 
 function createNewToken(user) {
     return jwt.sign(
-        { userId: user.id, username: user.username },
+        { userId: user.id, username: user.username, userType: user.user_type },
         JWT_SECRET_KEY,
         { expiresIn: '1h' }
     );
