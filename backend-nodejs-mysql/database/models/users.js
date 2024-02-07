@@ -13,10 +13,5 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
     underscored: true,
   });
-
-  Users.associate = models => {
-    Users.hasMany(models.accounts, { foreignKey: 'user_id' });
-  };
-
   return Users;
 };

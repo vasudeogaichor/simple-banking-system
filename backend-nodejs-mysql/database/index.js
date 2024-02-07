@@ -37,4 +37,23 @@ db.sequelize = sequelize;
 db.users = require("./models/users")(sequelize, DataTypes);
 db.accounts = require("./models/accounts")(sequelize, DataTypes);
 
+db.users.hasMany(db.accounts, { foreignKey: 'user_id' });
+db.accounts.belongsTo(db.users, { foreignKey: 'user_id' });
+
+db.accounts.afterCreate(async (account, options) => {
+	try {
+		// Update user's current_balance based on the amount and type
+		const user = await account.getUser();
+		const amount = account.amount;
+		if (account.type === 'deposit') {
+			user.current_balance += amount;
+		} else if (account.type === 'withdrawal') {
+			user.current_balance -= amount;
+		}
+		await user.save();
+	} catch (error) {
+		throw new Error('Error while updating current balance')
+	}
+});
+
 module.exports = db
