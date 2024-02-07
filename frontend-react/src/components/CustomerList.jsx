@@ -46,7 +46,7 @@ function CustomerListItem({ user }) {
 				<h2 className="mb-0">{firstname} {lastname}</h2>
 				<h6 className="fw-light">{username} ({email})</h6>
 				<div className="mb-1 text-muted">Account opened on: {formatDateTime(account_opened_date)}</div>
-				<p className="card-text mb-auto">Current balance: INR{current_balance}</p>
+				<p className="card-text mb-auto">Current balance: INR {current_balance/100}</p>
 				<a href={`/users/${id}/accounts`}>View all transactions</a>
 			</div>
 		</div>
@@ -57,6 +57,6 @@ function CustomerListItem({ user }) {
 
 function formatDateTime(dateString) {
     const date = moment(dateString);
-    const formattedDate = date.format('MMMM DD, YYYY, h:mm:ss A');
+    const formattedDate = date.format('MMMM DD, YYYY');
     return formattedDate
 }
