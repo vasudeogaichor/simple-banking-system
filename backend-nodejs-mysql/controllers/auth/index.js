@@ -6,13 +6,13 @@ async function authController(req, res, next) {
     try {
 
         if ((!req.body.password?.length) || (!req.body.username?.length)) {
-            res.status(400).json('Error: Username and Password required')
+            res.status(400).json({Error: 'Username and Password required'})
             return
         }
 
         let user = await userListFeature({ username: req.body.username }, false)
         if (!user.length) {
-            res.status(400).json('Error: Invalid username')
+            res.status(400).json({Error: 'Invalid username'})
             return;
         }
         user = user[0].dataValues
@@ -27,12 +27,12 @@ async function authController(req, res, next) {
                 user
             })
         } else {
-            res.status(400).json('Error: Username/password mismatch')
+            res.status(400).json({Error: 'Username/password mismatch'})
         }
 
     } catch (error) {
         console.log(error)
-        res.status(400).json()
+        res.status(400).json({Error: `${error}`})
     }
 }
 

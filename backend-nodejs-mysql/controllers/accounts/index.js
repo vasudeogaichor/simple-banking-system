@@ -4,14 +4,14 @@ const { accountCreateFeature } = require("../../features/accounts");
 async function accountListController(req, res, next) {
     try {
         if (!(req.user.userType == 'banker')) {
-            res.status(401).json(`Error: Invalid access`)
+            res.status(401).json({ Error: 'Invalid access' })
             return;
         }
         const result = await accountListFeature(req.query)
         res.status(200).json(result);
     } catch (error) {
         console.error(error);
-        res.status(400).json(error.message);
+        res.status(400).json({ Error: error.message });
     }
 }
 
@@ -25,7 +25,7 @@ async function accountCreateController(req, res, next) {
         res.status(201).json(result);
     } catch (error) {
         console.error(error);
-        res.status(400).json(error.message);
+        res.status(400).json({ Error: error.message });
     }
 }
 

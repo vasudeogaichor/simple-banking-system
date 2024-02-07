@@ -10,6 +10,6 @@ module.exports = async function accountListFeature(filters) {
         
         return await db.accounts.findAll({ where });
     } catch (error) {
-        throw new Error(error);
+        throw new Error(error.message);
     }
 }
