@@ -6,7 +6,7 @@ async function userListController(req, res, next) {
         res.status(200).json(result);
     } catch (error) {
         console.error(error);
-        res.status(500).json('Error fetching user list');
+        res.status(400).json('Error fetching user list');
     }
 }
 

@@ -1,2 +1,3 @@
 const userListFeature = require('./userListFeature')
-module.exports = { userListFeature }
+const userGetFeature = require('./userGetFeature')
+module.exports = { userListFeature, userGetFeature }

@@ -7,7 +7,7 @@ async function accountListController(req, res, next) {
         res.status(200).json(result);
     } catch (error) {
         console.error(error);
-        res.status(500).json(error.message);
+        res.status(400).json(error.message);
     }
 }
 
@@ -17,7 +17,7 @@ async function accountCreateController(req, res, next) {
         res.status(201).json(result);
     } catch (error) {
         console.error(error);
-        res.status(500).json(error.message);
+        res.status(400).json(error.message);
     }
 }
 
