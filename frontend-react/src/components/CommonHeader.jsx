@@ -1,24 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { logoutSuccess } from '../redux/actions';
+import TransactionModal from './modals/TransactionModal';
+import { createTxn } from '../apis/accounts';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loggedInUser = useSelector(state => state.auth.user);
+  const token = useSelector(state => state.auth.token);
+  const [transactionType, setTransactionType] = useState('deposit')
+  const [showTransactionModal, setShowTransactionModal] = useState(false)
+
+  const handleTransaction = (type, amount) => {
+    const user_id = loggedInUser.id
+    createTxn(token, {type, amount, user_id})
+    .then(res => {
+      console.log('res - ', res)
+    })
+    .catch(error => {
+      console.log('err - ', error)
+    })
+
+  }
+
+  const closeTransactionModal = () => {
+    setShowTransactionModal(false)
+  }
+
   const handleLogout = () => {
     dispatch(logoutSuccess());
     navigate('/')
   };
 
-	const handleDeposit = () => {
+  const handleDeposit = () => {
+    setTransactionType('deposit')
+    setShowTransactionModal(true)
+  }
 
-	}
+  const handleWithdrawal = () => {
+    setTransactionType('withdrwal')
+    setShowTransactionModal(true)
+  }
 
-	const handleWithdrawal = () => {
-
-	}
   return (
     <header className="d-flex flex-wrap mb-4 fixed-top opacity-animation">
       <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">
@@ -38,7 +63,7 @@ const Header = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <span className="nav-link active" aria-current="page">
-                  Welcome, {loggedInUser && (loggedInUser.firstname +' '+ loggedInUser.lastname)}
+                  Welcome, {loggedInUser && (loggedInUser.firstname + ' ' + loggedInUser.lastname)}
                 </span>
               </li>
             </ul>
@@ -62,6 +87,11 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      <TransactionModal showModal={showTransactionModal}
+        handleTransaction={handleTransaction}
+        closeModal={closeTransactionModal}
+        type={transactionType}
+         />
     </header>
   );
 };
