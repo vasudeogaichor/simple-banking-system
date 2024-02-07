@@ -29,6 +29,7 @@ export default function CustomerList() {
 		<div className="opacity-animation" style={{marginTop: '60px'}}>
 			{allUsers?.map((user) => (
 				<CustomerListItem
+					key={user.id}
 					user={user}
 				/>
 			))}

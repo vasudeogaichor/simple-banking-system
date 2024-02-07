@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { logoutSuccess } from '../redux/actions'; // Import logoutSuccess action
+import { logoutSuccess } from '../redux/actions';
 
 const Header = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // Initialize useDispatch hook
-  const loggedInUser = useSelector(state => state.auth.user); // Get logged-in user from Redux store
+  const dispatch = useDispatch();
+  const loggedInUser = useSelector(state => state.auth.user);
   const handleLogout = () => {
     dispatch(logoutSuccess());
     navigate('/')
