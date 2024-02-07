@@ -2,8 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../redux/actions';
+import { loginUser } from "../apis/auth";
 
 export default function CustomerLoginPage() {
+  const dispatch = useDispatch(); 
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,14 +15,15 @@ export default function CustomerLoginPage() {
 
   const handleLogin = async () => {
     const userDetails = { username, password };
-    const loginResult = {} //await loginUser(userDetails);
+    const loginResult = await loginUser(userDetails);
     if (loginResult?.Error) {
       setLoginError(loginResult.Error);
       setTimeout(() => {
         setLoginError(null);
       }, 3000);
     } else {
-      navigate("/");
+      dispatch(loginSuccess(loginResult.token, loginResult.user))
+      navigate("/customer-home");
     }
   };
 
