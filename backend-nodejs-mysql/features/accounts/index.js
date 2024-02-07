@@ -1,2 +1,3 @@
 const accountListFeature = require('./accountListFeature')
-module.exports = { accountListFeature }
+const accountCreateFeature = require('./accountCreateFeature')
+module.exports = { accountListFeature, accountCreateFeature }
