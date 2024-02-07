@@ -12,3 +12,14 @@ export const createTxn = async (token, payload) => {
   });
   return await res.json();
 };
+
+export const listTxns = async (token, queryParams) => {
+  const queryString = new URLSearchParams(queryParams).toString();
+  const res = await fetch(`${API_URL}/accounts?${queryString}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const txns = await res.json();
+  return txns;
+};

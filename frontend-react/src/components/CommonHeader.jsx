@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { logoutSuccess } from '../redux/actions';
 
-
 const Header = ({setShowTransactionModal, setTransactionType }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,6 +43,11 @@ const Header = ({setShowTransactionModal, setTransactionType }) => {
               <li className="nav-item">
                 <span className="nav-link active" aria-current="page">
                   Welcome, {loggedInUser && (loggedInUser.firstname + ' ' + loggedInUser.lastname)}
+                </span>
+              </li>
+              <li className="nav-item">
+                <span className="nav-link active" aria-current="page">
+                  Your Current Bal: {loggedInUser && `INR ${loggedInUser.current_balance/100}`}
                 </span>
               </li>
             </ul>
