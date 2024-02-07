@@ -24,7 +24,7 @@ const Header = ({setShowTransactionModal, setTransactionType }) => {
   }
 
   return (
-    <header className="d-flex flex-wrap mb-4 fixed-top opacity-animation">
+    <header className="d-flex flex-wrap mb-4 fixed-top opacity-animation bg-secondary">
       <nav className="navbar navbar-expand-lg bg-body-tertiary container-fluid">
         <div className="container-fluid">
           <button

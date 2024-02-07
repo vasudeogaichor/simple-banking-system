@@ -43,7 +43,7 @@ function CustomerListItem({ user }) {
 
 	return (
 		<Link to={`/users/${id}/transactions`} className="text-dark" style={{ textDecoration: 'none' }}>
-			<div className="slideup-opacity-animation row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+			<div className="slideup-opacity-animation row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
 				<div className="col p-4 d-flex flex-column position-static">
 					<h5 className="mb-0">User Id: {id}</h5>
 					<h3 className="mb-0">{firstname} {lastname}</h3>

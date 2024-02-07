@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../redux/actions';
 import { loginUser } from "../../apis/auth";
+import Banner from "../Banner";
 
 export default function CustomerLoginPage() {
   const dispatch = useDispatch(); 
@@ -28,7 +29,9 @@ export default function CustomerLoginPage() {
   };
 
   return (
-    <div className="d-flex align-items-top justify-content-center vh-100 opacity-animation" style={{ marginTop: '200px' }}>
+    <>
+    <Banner />
+    <div className="d-flex align-items-top justify-content-center vh-100 opacity-animation" style={{ marginTop: '100px' }}>
       <Form className="w-50">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Username</Form.Label>
@@ -65,5 +68,6 @@ export default function CustomerLoginPage() {
         )}
       </Form>
     </div>
+    </>
   );
 }

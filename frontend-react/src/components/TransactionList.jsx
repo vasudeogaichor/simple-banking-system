@@ -42,7 +42,7 @@ function TransactionListItem({ transaction }) {
 	const { id, type, amount, date, user_id } = transaction;
 
 	return (
-		<div className="slideup-opacity-animation row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+		<div className="slideup-opacity-animation row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
 			<div className="col p-4 d-flex flex-column position-static">
 				<h4 className="mb-0">Transaction ID: {id}</h4>
 				<h5 className="mb-0">User ID: {user_id}</h5>
