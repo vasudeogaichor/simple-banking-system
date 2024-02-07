@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const db = require('./database');
 const { userRouter, accountRouter, authRouter } = require('./routes');
 const { verifyToken } = require('./middleware/authMiddleware');
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
