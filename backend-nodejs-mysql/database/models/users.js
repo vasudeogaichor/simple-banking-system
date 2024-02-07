@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
-    user_type: DataTypes.ENUM('customer', 'banker'),
+    user_type: DataTypes.ENUM(['customer', 'banker']),
     account_opened_date: DataTypes.DATEONLY,
   }, {
     timestamps: true,

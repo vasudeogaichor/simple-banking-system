@@ -26,7 +26,8 @@ module.exports = {
         type: Sequelize.STRING,
       },
       user_type: {
-        type: Sequelize.ENUM(['customer', 'banker']),
+        type: Sequelize.ENUM,
+        values:['customer', 'banker'],
         allowNull: false,
       },
       account_opened_date: {
@@ -39,7 +40,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       updated_at: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       },
       deleted_at: {
