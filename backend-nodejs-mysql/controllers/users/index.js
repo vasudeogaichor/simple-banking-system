@@ -10,4 +10,4 @@ async function userListController(req, res, next) {
     }
 }
 
-module.exports = {userListController};
+module.exports = { userListController };
